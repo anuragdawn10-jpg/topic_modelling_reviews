@@ -1,0 +1,17 @@
+Topic Modeling Results (NMF, k=5)
+==================================================
+
+Topic 0  (27 documents)
+  stitching, fabric, use, seams, wears, undone, came, size, broke, zipper
+
+Topic 1  (41 documents)
+  room, great, beautiful, set, elegant, decor, impression, lobby, fantastic, day
+
+Topic 2  (30 documents)
+  table, hard, conversation, noisy, restaurant, extremely, arrived, food, twice, price
+
+Topic 3  (51 documents)
+  season, feels, plot, quality, conclusion, satisfying, threads, ending, unresolved, step
+
+Topic 4  (21 documents)
+  website, color, actual, misleading, different, looks, gets, photos, love, compliments
