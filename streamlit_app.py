@@ -19,7 +19,22 @@ from preprocess import clean_corpus
 from topic_model import vectorize, fit_lda, fit_nmf, select_n_topics_lda, get_top_words, assign_dominant_topic
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-DEFAULT_CSV = os.path.join(HERE, "data", "sample_reviews.csv")
+
+
+def resolve_default_csv():
+    candidates = [
+        os.path.join(HERE, "data", "sample_reviews.csv"),
+        os.path.join(HERE, "sample_reviews.csv"),
+    ]
+    for candidate in candidates:
+        if os.path.exists(candidate):
+            return candidate
+    raise FileNotFoundError(
+        "No bundled sample CSV found. Expected one of: " + ", ".join(candidates)
+    )
+
+
+DEFAULT_CSV = resolve_default_csv()
 
 st.set_page_config(page_title="Topic Modeling on Reviews", layout="wide")
 

@@ -25,7 +25,22 @@ from topic_model import vectorize, fit_lda, fit_nmf, select_n_topics_lda, get_to
 from visualize import plot_top_words_per_topic, plot_topic_selection, plot_topic_distribution
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-DEFAULT_CSV = os.path.join(HERE, "data", "sample_reviews.csv")
+
+
+def resolve_default_csv():
+    candidates = [
+        os.path.join(HERE, "data", "sample_reviews.csv"),
+        os.path.join(HERE, "sample_reviews.csv"),
+    ]
+    for candidate in candidates:
+        if os.path.exists(candidate):
+            return candidate
+    raise FileNotFoundError(
+        "No bundled sample CSV found. Expected one of: " + ", ".join(candidates)
+    )
+
+
+DEFAULT_CSV = resolve_default_csv()
 OUT_DIR = os.path.join(HERE, "outputs")
 
 
